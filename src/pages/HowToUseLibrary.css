@@ -1,0 +1,211 @@
+.how-library {
+  background: #f6f4ef;
+  min-height: 100vh;
+}
+
+.how-library__layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.how-library__content {
+  min-width: 0;
+  padding: 1.5rem;
+}
+
+.how-library__hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.how-library__hero img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  display: block;
+}
+
+.how-library__hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.how-library__hero-overlay h1 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(2.7rem, 6vw, 5.2rem);
+  font-weight: 300;
+  text-align: center;
+}
+
+.how-library__intro {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 4.5rem 2rem 4rem;
+  text-align: center;
+}
+
+.how-library__intro h2,
+.how-library__faq h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #191614;
+}
+
+.how-library__subtitle {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.how-library__divider {
+  width: 130px;
+  height: 1px;
+  background: #d8d1c6;
+  margin: 2rem auto;
+}
+
+.how-library__intro p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #3b342f;
+}
+
+.how-library__guide {
+  border-top: 1px solid #d8d1c6;
+  padding: 3.5rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.how-library__guide-image img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.how-library__guide-text {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.how-library__guide-text h2 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #191614;
+}
+
+.how-library__guide-text p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: #3b342f;
+}
+
+.how-library__button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 13px 28px;
+  border: 1px solid#93298F;
+  color:#93298F;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+}
+
+.how-library__button:hover {
+  background:#93298F;
+  color: #fff;
+}
+
+.how-library__faq {
+  border-top: 1px solid #d8d1c6;
+  padding: 4rem 2rem 5rem;
+}
+
+.how-library__faq-list {
+  max-width: 980px;
+  margin: 2.5rem auto 0;
+}
+
+.how-library__faq-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd4c7;
+}
+
+.how-library__faq-item h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.86rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.how-library__faq-item p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #3b342f;
+}
+
+@media (max-width: 1024px) {
+  .how-library__layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .how-library__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .how-library__content {
+    padding: 1rem;
+  }
+
+  .how-library__hero img {
+    height: 300px;
+  }
+
+  .how-library__intro {
+    padding: 3rem 1rem;
+  }
+
+  .how-library__guide,
+  .how-library__guide--reverse {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2.5rem 0;
+  }
+
+  .how-library__guide--reverse .how-library__guide-text {
+    order: 2;
+  }
+
+  .how-library__guide--reverse .how-library__guide-image {
+    order: 1;
+  }
+
+  .how-library__guide-image img {
+    height: 280px;
+  }
+
+  .how-library__faq {
+    padding: 3rem 1rem;
+  }
+}

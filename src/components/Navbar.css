@@ -1,0 +1,280 @@
+/* ── Base navbar ── */
+.navbar {
+  background: var(--white);
+  border-bottom: 1px solid #ede9e2;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar--scrolled {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ── Top utility bar ── */
+.navbar__topbar {
+  background: #93298F;
+  border-bottom: 1px solid #7a1f77;
+}
+
+.navbar__topbar-inner {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  padding: 0 2rem;
+}
+
+.navbar__topbar-newsletter {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+
+.navbar__topbar-newsletter:hover { opacity: 0.75; }
+
+.navbar__topbar-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.navbar__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.navbar__social-link svg { width: 15px; height: 15px; }
+.navbar__social-link:hover { opacity: 0.75; transform: translateY(-1px); }
+
+.navbar__social-link--dark { color: var(--ink); }
+.navbar__social-link--dark:hover { color: #93298F; opacity: 1; }
+
+/* ── Main row: logo + nav + hamburger ── */
+.navbar__main-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Logo ── */
+.navbar__logo {
+  display: inline-block;
+  padding: 1.4rem 2rem 0.6rem;
+}
+
+.navbar__logo-img {
+  height: 70px;
+  width: auto;
+  display: block;
+  transition: height 0.35s ease;
+}
+
+.navbar--scrolled .navbar__logo-img { height: 0; }
+.navbar--scrolled .navbar__logo { padding: 0; }
+
+/* ── Desktop nav ── */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.5rem 2rem 1rem;
+  flex-wrap: wrap;
+  transition: padding 0.35s ease;
+}
+
+.navbar--scrolled .navbar__nav { padding: 0.6rem 2rem; }
+
+.navbar__bullet {
+  color: var(--terracotta);
+  font-size: 0.5rem;
+  margin: 0 1.2rem;
+  line-height: 1;
+}
+
+.navbar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 0.3rem 1.1rem;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.navbar__link:hover,
+.navbar__link--active { color: var(--terracotta); }
+
+/* ── Hamburger — hidden on desktop ── */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  transform-origin: center;
+}
+
+.navbar__hamburger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.navbar__hamburger--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.navbar__hamburger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Mobile overlay ── */
+.navbar__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  z-index: 190;
+  pointer-events: none;
+  transition: background 0.28s ease;
+}
+
+/* ── Mobile drawer ── */
+.navbar__drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 82vw;
+  max-width: 320px;
+  height: 100%;
+  background: var(--white);
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  flex-direction: column;
+  box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+  overflow-y: auto;
+}
+
+/* ── Mobile breakpoint ── */
+@media (max-width: 768px) {
+  .navbar__main-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar__logo { padding: 0; }
+
+  .navbar__logo-img {
+    height: 44px !important;
+  }
+
+  .navbar--scrolled .navbar__logo-img { height: 44px !important; }
+  .navbar--scrolled .navbar__logo { padding: 0; }
+
+  /* Hide desktop nav */
+  .navbar__nav { display: none !important; }
+  .navbar__bullet { display: none; }
+
+  /* Show hamburger */
+  .navbar__hamburger { display: flex; }
+
+  /* Show overlay and drawer */
+  .navbar__overlay { display: block; }
+  .navbar__drawer { display: flex; }
+
+  .navbar__overlay--visible {
+    background: rgba(0,0,0,0.38);
+    pointer-events: auto;
+  }
+
+  .navbar__drawer--open {
+    transform: translateX(0);
+  }
+}
+
+/* ── Drawer header ── */
+.navbar__drawer-header {
+  background: #93298F;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: 64px;
+}
+
+.navbar__drawer-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.navbar__drawer-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255,255,255,0.85);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.navbar__drawer-close:hover { color: #fff; }
+
+/* ── Drawer nav links ── */
+.navbar__drawer-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__drawer-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--parchment);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.navbar__drawer-link:active { background: var(--parchment); }
+.navbar__drawer-link--active { color: #93298F; }
+.navbar__drawer-link svg { opacity: 0.35; flex-shrink: 0; }
+
+/* ── Drawer socials ── */
+.navbar__drawer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.5rem 20px;
+  border-top: 1px solid var(--parchment);
+  flex-shrink: 0;
+}
