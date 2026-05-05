@@ -127,7 +127,7 @@ const sortedFlowers = useMemo(() => {
                   <div className="print-card__image-placeholder" />
                 )}
               </div>
-              <p className="print-card__source">floretflowers.com</p>
+              <p className="print-card__source">Domusflowers.com</p>
               <p className="print-card__name">{flower.title}</p>
             </div>
           ))}
