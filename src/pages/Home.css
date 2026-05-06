@@ -736,7 +736,9 @@
 .home__sidebar-toggle {
   display: none;
 }
-
+.home__sidebar-inner {
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
 .home__sidebar-chevron {
   transition: transform 0.25s ease;
   color: #93298F;
